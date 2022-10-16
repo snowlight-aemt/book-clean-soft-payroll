@@ -1,8 +1,6 @@
 package me.snowlight.employee.transaction;
 
-import me.snowlight.employee.method.HoldMethod;
-import me.snowlight.employee.model.PaymentMethod;
-import me.snowlight.employee.schedule.MonthlyPaymentSchedule;
+import me.snowlight.employee.schedule.MonthlySchedule;
 import me.snowlight.employee.model.PaymentClassification;
 import me.snowlight.employee.model.PaymentSchedule;
 import me.snowlight.employee.classification.SalariedClassification;
@@ -21,6 +19,6 @@ public class AddSalariedEmployee extends AddEmployeeTransaction {
 
     @Override
     protected PaymentSchedule getPaymentSchedule() {
-        return new MonthlyPaymentSchedule();
+        return new MonthlySchedule();
     }
 }
