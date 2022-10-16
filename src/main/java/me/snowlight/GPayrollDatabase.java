@@ -14,4 +14,8 @@ public class GPayrollDatabase {
     public static void addEmployee(Long empId, Employee employee) {
         employees.put(empId, employee);
     }
+
+    public static void deleteEmployee(Long empId) {
+        employees.remove(empId);
+    }
 }
