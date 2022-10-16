@@ -1,6 +1,7 @@
 package me.snowlight.employee.transaction;
 
 import me.snowlight.GPayrollDatabase;
+import me.snowlight.employee.classification.CommissionedClassification;
 import me.snowlight.employee.classification.HourlyClassification;
 import me.snowlight.employee.classification.SalariedClassification;
 import me.snowlight.employee.method.HoldMethod;
@@ -8,6 +9,7 @@ import me.snowlight.employee.model.Employee;
 import me.snowlight.employee.model.PaymentClassification;
 import me.snowlight.employee.model.PaymentMethod;
 import me.snowlight.employee.model.PaymentSchedule;
+import me.snowlight.employee.schedule.BiweeklySchedule;
 import me.snowlight.employee.schedule.MonthlySchedule;
 import me.snowlight.employee.schedule.WeeklySchedule;
 import org.junit.jupiter.api.DisplayName;
@@ -67,6 +69,31 @@ class AddEmployeeTransactionTest {
         PaymentMethod paymentMethod = employee.getPaymentMethod();
         assertThat(paymentMethod).isNotNull();
         assertThat(paymentMethod.getClass()).isEqualTo(HoldMethod.class);
+    }
+
+    @DisplayName("조합 수수료 월급 직원")
+    @Test
+    public void testAddCommissionedEmployee() {
+        long empId = 3L;
+        String name = "C-Employee";
+        var addCommissionedEmployee = new AddCommissionedEmployee(
+                                                                empId,
+                                                                name,
+                                                                "C-Address",
+                                                                1000.0f,
+                                                                .1f);
+
+        addCommissionedEmployee.execute();
+
+        Employee employee = GPayrollDatabase.getEmployee(empId);
+        assertThat(employee).isNotNull();
+        assertThat(employee.getName()).isEqualTo(name);
+
+        assertThat(employee.getPaymentClassification()).isNotNull();
+        assertThat(employee.getPaymentClassification().getClass()).isEqualTo(CommissionedClassification.class);
+
+        assertThat(employee.getPaymentSchedule()).isNotNull();
+        assertThat(employee.getPaymentSchedule().getClass()).isEqualTo(BiweeklySchedule.class);
     }
 
     

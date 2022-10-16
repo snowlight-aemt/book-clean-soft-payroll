@@ -6,12 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GPayrollDatabase {
-    private final static Map<Long, Employee> employeeDic = new HashMap<>();
+    private final static Map<Long, Employee> employees = new HashMap<>();
     public static Employee getEmployee(long empId) {
-        return employeeDic.get(empId);
+        return employees.get(empId);
     }
 
-    public static void setEmployee(Employee employee) {
-        employeeDic.put(employee.getEmpId(), employee);
+    public static void addEmployee(Long empId, Employee employee) {
+        employees.put(empId, employee);
     }
 }

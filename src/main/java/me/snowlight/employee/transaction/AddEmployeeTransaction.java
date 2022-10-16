@@ -3,7 +3,6 @@ package me.snowlight.employee.transaction;
 import me.snowlight.GPayrollDatabase;
 import me.snowlight.employee.method.HoldMethod;
 import me.snowlight.employee.model.PaymentClassification;
-import me.snowlight.employee.model.PaymentMethod;
 import me.snowlight.employee.model.PaymentSchedule;
 import me.snowlight.employee.model.Employee;
 
@@ -18,7 +17,7 @@ public abstract class AddEmployeeTransaction implements Transaction {
         employee.setPaymentClassification(this.getPaymentClassification());
         employee.setPaymentSchedule(this.getPaymentSchedule());
         employee.setPaymentMethod(new HoldMethod());
-        GPayrollDatabase.setEmployee(employee);
+        GPayrollDatabase.addEmployee(employee.getEmpId(), employee);
     }
 
     public AddEmployeeTransaction(Long empId, String name, String address) {
