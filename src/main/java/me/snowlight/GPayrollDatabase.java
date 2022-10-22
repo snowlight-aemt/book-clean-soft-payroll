@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class GPayrollDatabase {
     private final static Map<Long, Employee> employees = new HashMap<>();
+    private final static Map<Long, Employee> members = new HashMap<>();
     public static Employee getEmployee(long empId) {
         return employees.get(empId);
     }
@@ -17,5 +18,13 @@ public class GPayrollDatabase {
 
     public static void deleteEmployee(Long empId) {
         employees.remove(empId);
+    }
+
+    public static void AddUnionMember(long memberId, Employee employee) {
+        members.put(memberId, employee);
+    }
+
+    public static Employee getUnionMember(Long memberId) {
+        return members.get(memberId);
     }
 }
