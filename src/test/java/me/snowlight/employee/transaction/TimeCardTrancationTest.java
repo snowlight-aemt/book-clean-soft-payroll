@@ -3,14 +3,10 @@ package me.snowlight.employee.transaction;
 import me.snowlight.GPayrollDatabase;
 import me.snowlight.employee.classification.HourlyClassification;
 import me.snowlight.employee.model.Employee;
-import org.assertj.core.api.Assertions;
+import me.snowlight.employee.model.TimeCard;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
-import java.time.Month;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class TimeCardTrancationTest {
 

@@ -1,4 +1,4 @@
-package me.snowlight.employee.transaction;
+package me.snowlight.employee.model;
 
 
 public class SalesReceipt {

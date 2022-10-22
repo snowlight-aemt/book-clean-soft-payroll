@@ -1,7 +1,7 @@
 package me.snowlight.employee.classification;
 
 import me.snowlight.employee.model.PaymentClassification;
-import me.snowlight.employee.transaction.SalesReceipt;
+import me.snowlight.employee.model.SalesReceipt;
 
 import java.util.HashMap;
 import java.util.Map;

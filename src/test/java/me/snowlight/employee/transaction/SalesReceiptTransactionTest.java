@@ -3,10 +3,9 @@ package me.snowlight.employee.transaction;
 import me.snowlight.GPayrollDatabase;
 import me.snowlight.employee.classification.CommissionedClassification;
 import me.snowlight.employee.model.Employee;
-import org.assertj.core.api.Assertions;
+import me.snowlight.employee.model.SalesReceipt;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SalesReceiptTransactionTest {

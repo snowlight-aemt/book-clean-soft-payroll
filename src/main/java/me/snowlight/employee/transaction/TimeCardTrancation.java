@@ -3,10 +3,7 @@ package me.snowlight.employee.transaction;
 import me.snowlight.GPayrollDatabase;
 import me.snowlight.employee.classification.HourlyClassification;
 import me.snowlight.employee.model.Employee;
-import me.snowlight.employee.model.PaymentClassification;
-
-import java.time.LocalDate;
-import java.time.Month;
+import me.snowlight.employee.model.TimeCard;
 
 public class TimeCardTrancation  implements Transaction {
     private Long empId;

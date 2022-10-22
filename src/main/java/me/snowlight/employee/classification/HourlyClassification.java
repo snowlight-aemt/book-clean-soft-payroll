@@ -1,9 +1,8 @@
 package me.snowlight.employee.classification;
 
 import me.snowlight.employee.model.PaymentClassification;
-import me.snowlight.employee.transaction.TimeCard;
+import me.snowlight.employee.model.TimeCard;
 
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 

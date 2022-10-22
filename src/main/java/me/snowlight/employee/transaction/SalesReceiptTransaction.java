@@ -3,6 +3,7 @@ package me.snowlight.employee.transaction;
 import me.snowlight.GPayrollDatabase;
 import me.snowlight.employee.classification.CommissionedClassification;
 import me.snowlight.employee.model.Employee;
+import me.snowlight.employee.model.SalesReceipt;
 
 public class SalesReceiptTransaction implements Transaction {
 
