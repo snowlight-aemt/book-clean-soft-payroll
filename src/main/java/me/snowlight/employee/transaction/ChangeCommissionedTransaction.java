@@ -5,11 +5,11 @@ import me.snowlight.employee.model.PaymentClassification;
 import me.snowlight.employee.model.PaymentSchedule;
 import me.snowlight.employee.schedule.BiweeklySchedule;
 
-public class ChangeCommisionedTransaction extends ChangeClassificationTransaction {
+public class ChangeCommissionedTransaction extends ChangeClassificationTransaction {
     private float salary;
     private float commissionRate;
 
-    public ChangeCommisionedTransaction(Long empId, float salary, float commissionRate) {
+    public ChangeCommissionedTransaction(Long empId, float salary, float commissionRate) {
         super(empId);
         this.salary = salary;
         this.commissionRate = commissionRate;

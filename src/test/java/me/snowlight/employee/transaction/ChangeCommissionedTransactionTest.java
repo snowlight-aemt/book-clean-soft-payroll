@@ -23,7 +23,7 @@ class ChangeCommissionedTransactionTest {
         assertThat(employee.getPaymentClassification().getClass()).isEqualTo(HourlyClassification.class);
         assertThat(employee.getPaymentSchedule().getClass()).isEqualTo(WeeklySchedule.class);
 
-        ChangeCommisionedTransaction changeSalariedTransaction = new ChangeCommisionedTransaction(1L, 150.0f, 3.0f);
+        ChangeCommissionedTransaction changeSalariedTransaction = new ChangeCommissionedTransaction(1L, 150.0f, 3.0f);
         changeSalariedTransaction.execute();
         assertThat(employee.getPaymentClassification().getClass()).isEqualTo(CommissionedClassification.class);
         assertThat(employee.getPaymentSchedule().getClass()).isEqualTo(BiweeklySchedule.class);
