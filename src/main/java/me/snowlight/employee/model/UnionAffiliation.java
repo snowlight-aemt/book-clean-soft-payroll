@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UnionAffiliation implements  Affiliation {
+    private Long memberId;
     private float dues;
     private Map<Long, ServiceCharge> serviceCharges = new HashMap<>();
-    public UnionAffiliation(float dues) {
+    public UnionAffiliation(Long memberId, float dues) {
+        this.memberId = memberId;
         this.dues = dues;
     }
 
@@ -16,5 +18,9 @@ public class UnionAffiliation implements  Affiliation {
 
     public void setServiceCharge(Long date, float charge) {
         serviceCharges.put(date, new ServiceCharge(date, charge));
+    }
+
+    public Long getMemberId() {
+        return memberId;
     }
 }

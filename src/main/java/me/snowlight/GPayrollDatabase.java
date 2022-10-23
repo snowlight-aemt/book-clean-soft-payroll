@@ -27,4 +27,8 @@ public class GPayrollDatabase {
     public static Employee getUnionMember(Long memberId) {
         return members.get(memberId);
     }
+
+    public static void RemoveUnionMember(Long memberId) {
+        members.remove(memberId);
+    }
 }

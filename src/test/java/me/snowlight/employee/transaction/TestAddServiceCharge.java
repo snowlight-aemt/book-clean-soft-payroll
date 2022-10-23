@@ -17,7 +17,7 @@ public class TestAddServiceCharge {
         Employee employee = GPayrollDatabase.getEmployee(1L);
         // 주당 조합비는 임금에서 공재되어야 한다.
         // 주당 조합비 비율을 입력
-        UnionAffiliation unionAffiliation = new UnionAffiliation(12.5f);
+        UnionAffiliation unionAffiliation = new UnionAffiliation(11L, 12.5f);
         employee.setAffiliation(unionAffiliation);
         GPayrollDatabase.AddUnionMember(11L, employee);
 
