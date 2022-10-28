@@ -12,4 +12,9 @@ public class SalariedClassification implements PaymentClassification {
     public float getSalary() {
         return salary;
     }
+
+    @Override
+    public double calculatePay() {
+        return 0;
+    }
 }

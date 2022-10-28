@@ -1,5 +1,7 @@
 package me.snowlight.employee.model;
 
+import java.time.LocalDate;
+
 public class Employee {
     private Long empId;
     private String name;
@@ -13,6 +15,7 @@ public class Employee {
         this.empId = empId;
         this.name = name;
         this.address = address;
+        this.affiliation = new NoAffiliation();
     }
 
     public Long getEmpId() {
@@ -65,5 +68,17 @@ public class Employee {
 
     public Affiliation getAffiliation() {
         return this.affiliation;
+    }
+
+    public boolean isPayDate(LocalDate date) {
+        return this.getPaymentSchedule().isPayDate(date);
+    }
+
+    public PayCheck payDay(PayCheck payCheck) {
+        double grossPay = this.paymentClassification.calculatePay();
+        double deductions = this.affiliation.calculateDeductions(payCheck);
+        double netpay = grossPay - deductions;
+
+        return new PayCheck(payCheck.getPayDate(), grossPay, deductions, netpay);
     }
 }

@@ -2,12 +2,18 @@ package me.snowlight;
 
 import me.snowlight.employee.model.Employee;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GPayrollDatabase {
     private final static Map<Long, Employee> employees = new HashMap<>();
     private final static Map<Long, Employee> members = new HashMap<>();
+    public static List<Employee> getAllEmployees() {
+        return new ArrayList<>(employees.values());
+    }
+
     public static Employee getEmployee(long empId) {
         return employees.get(empId);
     }

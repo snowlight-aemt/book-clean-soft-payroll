@@ -24,4 +24,12 @@ public class UnionAffiliation implements  Affiliation {
     public Long getMemberId() {
         return memberId;
     }
+
+    @Override
+    public double calculateDeductions(PayCheck payCheck) {
+        double totalServiceCharge = this.serviceCharges.values().stream()
+                .mapToDouble(ServiceCharge::getCharge)
+                .sum();
+        return this.dues + totalServiceCharge;
+    }
 }

@@ -8,9 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HourlyClassification implements PaymentClassification {
+    private float hour;
     private Map<LocalDate, TimeCard> timeCards = new HashMap<>();
 
     public HourlyClassification(float hour) {
+        this.hour = hour;
     }
 
     public void AddTimeCard(TimeCard timeCard) {
@@ -19,5 +21,12 @@ public class HourlyClassification implements PaymentClassification {
 
     public TimeCard getTimeCard(LocalDate date) {
         return timeCards.get(date);
+    }
+
+    @Override
+    public double calculatePay() {
+        return timeCards.values().stream()
+                            .mapToDouble(t -> t.getHours() * this.hour)
+                            .sum();
     }
 }
