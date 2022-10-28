@@ -81,6 +81,10 @@ public class Employee {
 
         this.paymentMethod.pay(payCheck);
 
-        return new PayCheck(payCheck.getPayDate(), grossPay, deductions, netpay);
+        return new PayCheck(payCheck.getPayPeriodEndDate(), grossPay, deductions, netpay);
+    }
+
+    public LocalDate getPayPeriodStartDate(LocalDate date) {
+        return this.getPaymentSchedule().getPayPeriodStartDate(date);
     }
 }

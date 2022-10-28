@@ -10,7 +10,11 @@ import java.time.temporal.TemporalAdjusters;
 public class MonthlySchedule implements PaymentSchedule {
     @Override
     public boolean isPayDate(LocalDate date) {
-        LocalDate lastDayOfMonth = date.with(TemporalAdjusters.lastDayOfMonth());
-        return lastDayOfMonth.equals(date);
+        return getPayPeriodStartDate(date).equals(date);
+    }
+
+    @Override
+    public LocalDate getPayPeriodStartDate(LocalDate endDate) {
+        return endDate.with(TemporalAdjusters.lastDayOfMonth());
     }
 }

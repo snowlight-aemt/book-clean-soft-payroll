@@ -9,4 +9,9 @@ public class BiweeklySchedule implements PaymentSchedule {
     public boolean isPayDate(LocalDate date) {
         return false;
     }
+
+    @Override
+    public LocalDate getPayPeriodStartDate(LocalDate endDate) {
+        return null;
+    }
 }

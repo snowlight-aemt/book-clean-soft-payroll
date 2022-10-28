@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CommissionedClassification implements PaymentClassification {
+public class CommissionedClassification extends PaymentClassification {
     private float salary;
     private float commissionRate;
     private Map<LocalDate, SalesReceipt> salesReceipts = new HashMap<>();

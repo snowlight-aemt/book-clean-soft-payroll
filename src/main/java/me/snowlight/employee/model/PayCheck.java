@@ -3,24 +3,26 @@ package me.snowlight.employee.model;
 import java.time.LocalDate;
 
 public class PayCheck {
+    private LocalDate payPeriodStartDate;
     private double grossPay;
     private double deductions;
     private double netpay;
-    private LocalDate payDate;
+    private LocalDate payPeriodEndDate;
 
-    public PayCheck(LocalDate payDate) {
-        this.payDate = payDate;
+    public PayCheck(LocalDate payPeriodStartDate, LocalDate payPeriodEndDate) {
+        this.payPeriodStartDate = payPeriodStartDate;
+        this.payPeriodEndDate = payPeriodEndDate;
     }
 
-    public PayCheck(LocalDate payDate, double grossPay, double deductions, double netpay) {
-        this.payDate = payDate;
+    public PayCheck(LocalDate payPeriodEndDate, double grossPay, double deductions, double netpay) {
+        this.payPeriodEndDate = payPeriodEndDate;
         this.grossPay = grossPay;
         this.deductions = deductions;
         this.netpay = netpay;
     }
 
-    public LocalDate getPayDate() {
-        return this.payDate;
+    public LocalDate getPayPeriodEndDate() {
+        return this.payPeriodEndDate;
     }
 
     public double getGrossPay() {
@@ -33,5 +35,9 @@ public class PayCheck {
 
     public double getGetNetPay() {
         return this.netpay;
+    }
+
+    public LocalDate getPayPeriodStartDate() {
+        return payPeriodStartDate;
     }
 }

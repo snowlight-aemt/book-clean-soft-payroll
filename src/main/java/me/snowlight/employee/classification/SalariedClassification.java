@@ -3,7 +3,7 @@ package me.snowlight.employee.classification;
 import me.snowlight.employee.model.PayCheck;
 import me.snowlight.employee.model.PaymentClassification;
 
-public class SalariedClassification implements PaymentClassification {
+public class SalariedClassification extends PaymentClassification {
     private float salary;
 
     public SalariedClassification(float salary) {

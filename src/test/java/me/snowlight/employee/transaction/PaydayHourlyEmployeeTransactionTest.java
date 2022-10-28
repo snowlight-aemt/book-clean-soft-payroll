@@ -126,7 +126,7 @@ public class PaydayHourlyEmployeeTransactionTest
     private static void validateHourlyPayCheck(PaydayTransaction paydayTransaction, long empId, LocalDate dDay, float pay) {
         PayCheck payCheck = paydayTransaction.getPayCheck(empId);
         assertThat(payCheck).isNotNull();
-        assertThat(payCheck.getPayDate()).isEqualTo(dDay);
+        assertThat(payCheck.getPayPeriodEndDate()).isEqualTo(dDay);
         assertThat(payCheck.getGrossPay()).isEqualTo(pay);
         assertThat(payCheck.getDeductions()).isEqualTo(0);
         assertThat(payCheck.getGetNetPay()).isEqualTo(pay);
