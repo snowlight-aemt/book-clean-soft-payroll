@@ -3,15 +3,15 @@ package me.snowlight.employee.model;
 import java.time.LocalDate;
 
 public class TimeCard {
-    private Long date;
+    private LocalDate date;
     private float hours;
 
-    public TimeCard(Long date, float hours) {
+    public TimeCard(LocalDate date, float hours) {
         this.date = date;
         this.hours = hours;
     }
 
-    public Long getDate() {
+    public LocalDate getDate() {
         return date;
     }
 

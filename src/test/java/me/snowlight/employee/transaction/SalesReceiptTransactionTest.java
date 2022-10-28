@@ -6,6 +6,9 @@ import me.snowlight.employee.model.Employee;
 import me.snowlight.employee.model.SalesReceipt;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+import java.time.Month;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SalesReceiptTransactionTest {
@@ -19,24 +22,25 @@ public class SalesReceiptTransactionTest {
         addCommissionedEmployee.execute();
         Employee employee = GPayrollDatabase.getEmployee(empId);
 
-        long date = 20221016L;
+        LocalDate firstTestDate = LocalDate.of(2022, Month.OCTOBER, 25);
+        LocalDate sencodTestDate = LocalDate.of(2022, Month.OCTOBER, 26);
         float amount = 4.0f;
         SalesReceiptTransaction salesReceiptTransaction =
-                new SalesReceiptTransaction(empId, date, amount);
+                new SalesReceiptTransaction(empId, firstTestDate, amount);
         salesReceiptTransaction.execute();
-        new SalesReceiptTransaction(empId, 20221017L, 6.0f).execute();
+        new SalesReceiptTransaction(empId, sencodTestDate, 6.0f).execute();
 
         assertThat(employee).isNotNull();
         CommissionedClassification commissionedClassification =
                 (CommissionedClassification) employee.getPaymentClassification();
 
-        SalesReceipt salesReceipt = commissionedClassification.getSalesReceipt(date);
+        SalesReceipt salesReceipt = commissionedClassification.getSalesReceipt(firstTestDate);
         assertThat(salesReceipt).isNotNull();
-        assertThat(salesReceipt.getDate()).isEqualTo(date);
+        assertThat(salesReceipt.getDate()).isEqualTo(firstTestDate);
         assertThat(salesReceipt.getAmount()).isEqualTo(amount);
-        SalesReceipt salesReceipt_20221017 = commissionedClassification.getSalesReceipt(20221017L);
+        SalesReceipt salesReceipt_20221017 = commissionedClassification.getSalesReceipt(sencodTestDate);
         assertThat(salesReceipt_20221017).isNotNull();
-        assertThat(salesReceipt_20221017.getDate()).isEqualTo(20221017L);
+        assertThat(salesReceipt_20221017.getDate()).isEqualTo(sencodTestDate);
         assertThat(salesReceipt_20221017.getAmount()).isEqualTo(6.0f);
 
     }

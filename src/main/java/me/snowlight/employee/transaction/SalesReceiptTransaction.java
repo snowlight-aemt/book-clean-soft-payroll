@@ -5,13 +5,15 @@ import me.snowlight.employee.classification.CommissionedClassification;
 import me.snowlight.employee.model.Employee;
 import me.snowlight.employee.model.SalesReceipt;
 
+import java.time.LocalDate;
+
 public class SalesReceiptTransaction implements Transaction {
 
     private Long empId;
-    private Long date;
+    private LocalDate date;
     private float amount;
 
-    public SalesReceiptTransaction(Long empId, Long date, float amount) {
+    public SalesReceiptTransaction(Long empId, LocalDate date, float amount) {
         this.empId = empId;
         this.date = date;
         this.amount = amount;

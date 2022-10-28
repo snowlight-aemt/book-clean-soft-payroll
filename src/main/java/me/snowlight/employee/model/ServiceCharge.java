@@ -1,11 +1,13 @@
 package me.snowlight.employee.model;
 
+import java.time.LocalDate;
+
 public class ServiceCharge {
 
     private float charge;
-    private Long date;
+    private LocalDate date;
 
-    public ServiceCharge(Long date, float charge) {
+    public ServiceCharge(LocalDate date, float charge) {
         this.charge = charge;
         this.date = date;
     }
@@ -14,7 +16,7 @@ public class ServiceCharge {
         return this.charge;
     }
 
-    public Long getDate() {
+    public LocalDate getDate() {
         return this.date;
     }
 }

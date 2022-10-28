@@ -7,6 +7,9 @@ import me.snowlight.employee.model.UnionAffiliation;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+import java.time.Month;
+
 public class TestAddServiceCharge {
     @Test
     public void execute() {
@@ -22,13 +25,13 @@ public class TestAddServiceCharge {
         GPayrollDatabase.AddUnionMember(11L, employee);
 
         // 또한 조합은 가끔 조합원 개인에게 공재액을 주과할 수도 있다.
-        long date = 20221022L;
+        LocalDate serviceDate = LocalDate.of(2022, Month.OCTOBER, 27);
         ServiceChargeTransaction serviceChargeTransaction =
-                new ServiceChargeTransaction(11L, date, 12.95f);
+                new ServiceChargeTransaction(11L, serviceDate, 12.95f);
         serviceChargeTransaction.execute();
 
-        ServiceCharge serviceCharge = unionAffiliation.getServiceCharge(date);
+        ServiceCharge serviceCharge = unionAffiliation.getServiceCharge(serviceDate);
         Assertions.assertThat(serviceCharge.getCharge()).isEqualTo(12.95f);
-        Assertions.assertThat(serviceCharge.getDate()).isEqualTo(date);
+        Assertions.assertThat(serviceCharge.getDate()).isEqualTo(serviceDate);
     }
 }

@@ -6,12 +6,14 @@ import me.snowlight.employee.model.Employee;
 import me.snowlight.employee.model.ServiceCharge;
 import me.snowlight.employee.model.UnionAffiliation;
 
+import java.time.LocalDate;
+
 public class ServiceChargeTransaction implements Transaction {
     private Long memberId;
-    private Long date;
+    private LocalDate date;
     private float charge;
 
-    public ServiceChargeTransaction(Long memberId, Long date, float charge) {
+    public ServiceChargeTransaction(Long memberId, LocalDate date, float charge) {
         this.memberId = memberId;
         this.date = date;
         this.charge = charge;

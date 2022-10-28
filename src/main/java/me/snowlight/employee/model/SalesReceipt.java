@@ -1,16 +1,18 @@
 package me.snowlight.employee.model;
 
 
+import java.time.LocalDate;
+
 public class SalesReceipt {
-    private Long date;
+    private LocalDate date;
     private float amount;
 
-    public SalesReceipt(Long date, float amount) {
+    public SalesReceipt(LocalDate date, float amount) {
         this.date = date;
         this.amount = amount;
     }
 
-    public Long getDate() {
+    public LocalDate getDate() {
         return this.date;
     }
 

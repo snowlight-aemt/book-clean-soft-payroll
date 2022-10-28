@@ -5,12 +5,14 @@ import me.snowlight.employee.classification.HourlyClassification;
 import me.snowlight.employee.model.Employee;
 import me.snowlight.employee.model.TimeCard;
 
+import java.time.LocalDate;
+
 public class TimeCardTrancation  implements Transaction {
     private Long empId;
-    private Long date;
+    private LocalDate date;
     private float hours;
 
-    public TimeCardTrancation(Long date, float hours, Long empId) {
+    public TimeCardTrancation(LocalDate date, float hours, Long empId) {
         this.empId = empId;
         this.date = date;
         this.hours = hours;
