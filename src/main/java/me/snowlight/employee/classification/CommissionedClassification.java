@@ -1,5 +1,6 @@
 package me.snowlight.employee.classification;
 
+import me.snowlight.employee.model.PayCheck;
 import me.snowlight.employee.model.PaymentClassification;
 import me.snowlight.employee.model.SalesReceipt;
 
@@ -26,7 +27,7 @@ public class CommissionedClassification implements PaymentClassification {
     }
 
     @Override
-    public double calculatePay() {
+    public double calculatePay(PayCheck payCheck) {
         return 0;
     }
 }

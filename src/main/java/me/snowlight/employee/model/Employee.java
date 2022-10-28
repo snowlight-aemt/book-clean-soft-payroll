@@ -75,7 +75,7 @@ public class Employee {
     }
 
     public PayCheck payDay(PayCheck payCheck) {
-        double grossPay = this.paymentClassification.calculatePay();
+        double grossPay = this.paymentClassification.calculatePay(payCheck);
         double deductions = this.affiliation.calculateDeductions(payCheck);
         double netpay = grossPay - deductions;
 
