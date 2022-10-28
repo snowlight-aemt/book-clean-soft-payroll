@@ -79,6 +79,8 @@ public class Employee {
         double deductions = this.affiliation.calculateDeductions(payCheck);
         double netpay = grossPay - deductions;
 
+        this.paymentMethod.pay(payCheck);
+
         return new PayCheck(payCheck.getPayDate(), grossPay, deductions, netpay);
     }
 }

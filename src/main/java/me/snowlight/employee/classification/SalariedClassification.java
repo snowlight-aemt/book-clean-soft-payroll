@@ -16,6 +16,6 @@ public class SalariedClassification implements PaymentClassification {
 
     @Override
     public double calculatePay(PayCheck payCheck) {
-        return 0;
+        return this.salary;
     }
 }

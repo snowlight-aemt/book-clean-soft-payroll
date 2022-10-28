@@ -10,7 +10,7 @@ import java.time.Month;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PaydayTransactionTest
+public class PaydayHourlyEmployeeTransactionTest
 {
     @Test
     public void testSingleHourlyEmployeeNoTimeCard() {
